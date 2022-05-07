@@ -67,7 +67,7 @@ public class CodeGenerator {
     private static void genModelAndMapper(String tableName, String modelName) {
         Context context = new Context(ModelType.FLAT);
         context.setId("Potato");
-        context.setTargetRuntime("Mybatis3Simple");
+        context.setTargetRuntime("MyBatis3Simple");
         context.addProperty(PropertyRegistry.CONTEXT_BEGINNING_DELIMITER, "`");
         context.addProperty(PropertyRegistry.CONTEXT_ENDING_DELIMITER, "`");
 
@@ -126,7 +126,7 @@ public class CodeGenerator {
         }
         if (StringUtils.isEmpty(modelName)) modelName = tableNameConvertUpperCamel(tableName);
         System.out.println(modelName + ".java 生成成功");
-        System.out.println(modelName + ".Mapper.java 生成成功");
+        System.out.println(modelName + "Mapper.java 生成成功");
         System.out.println(modelName + "Mapper.xml 生成成功");
     }
 
