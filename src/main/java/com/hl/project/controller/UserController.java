@@ -1,4 +1,4 @@
-package com.hl.project.web;
+package com.hl.project.controller;
 import com.hl.project.core.Result;
 import com.hl.project.core.ResultGenerator;
 import com.hl.project.model.User;
