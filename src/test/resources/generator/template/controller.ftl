@@ -1,4 +1,4 @@
-package ${basePackage}.controller;
+package ${basePackage}.web;
 import ${basePackage}.core.Result;
 import ${basePackage}.core.ResultGenerator;
 import ${basePackage}.model.${modelNameUpperCamel};
