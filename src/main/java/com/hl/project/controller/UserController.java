@@ -5,10 +5,11 @@ import com.hl.project.model.User;
 import com.hl.project.service.UserService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.List;
 * Created by CodeGenerator on 2022/05/09.
 */
 @RestController
+@Api(tags = {"用户管理"})
 @RequestMapping("/user")
 public class UserController {
 
@@ -24,7 +26,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/create")
-    public Result create(User user) {
+    public Result create(@RequestBody User user) {
         userService.create(user);
         return ResultGenerator.genSuccessResult();
     }
@@ -48,6 +50,11 @@ public class UserController {
     }
 
     @PostMapping("/list")
+    @ApiOperation("获取所有用户")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "page", value = "页码"),
+            @ApiImplicitParam(name = "size", value = "每页条数")
+    })
     public Result list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
         PageHelper.startPage(page, size);
         List<User> list = userService.list();

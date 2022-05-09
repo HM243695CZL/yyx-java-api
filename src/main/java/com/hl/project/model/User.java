@@ -1,5 +1,7 @@
 package com.hl.project.model;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.Date;
 import javax.persistence.*;
 
@@ -11,12 +13,14 @@ public class User {
     /**
      * 创建时间
      */
+    @ApiModelProperty(value = "创建时间")
     @Column(name = "createdTime")
     private Date createdtime;
 
     /**
      * 更新时间
      */
+    @ApiModelProperty(value = "创建时间")
     @Column(name = "lastModifiedTime")
     private Date lastmodifiedtime;
 
